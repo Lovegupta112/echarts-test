@@ -96,7 +96,7 @@ const EMGChart = () => {
   
   // Create a separate series for each channel with appropriate offset
   const series = signalKeys.map((key, idx) => {
-    const offset = (signalKeys.length - idx) * spacing;
+    const offset = (signalKeys.length - idx) * 70;
     
     return {
       name: key,
@@ -168,21 +168,21 @@ const EMGChart = () => {
       top: 40,
       containLabel: true
     },
-    dataZoom: [
-      {
-        type: 'slider',
-        show: true,
-        xAxisIndex: [0],
-        start: 0,
-        end: 100
-      },
-      {
-        type: 'inside',
-        xAxisIndex: [0],
-        start: 0,
-        end: 100
-      }
-    ],
+    // dataZoom: [
+    //   {
+    //     type: 'slider',
+    //     show: true,
+    //     xAxisIndex: [0],
+    //     start: 0,
+    //     end: 100
+    //   },
+    //   {
+    //     type: 'inside',
+    //     xAxisIndex: [0],
+    //     start: 0,
+    //     end: 100
+    //   }
+    // ],
     xAxis: {
       type: 'category',
       data: timePoints,
@@ -241,14 +241,7 @@ const EMGChart = () => {
           opts={{ renderer: 'svg' }}
         />
       </div>
-      <div className="flex justify-between w-full mt-4 px-4 text-sm">
-        <div>0 ms</div>
-        <div>2.0 sec</div>
-        <div>4.0 sec</div>
-        <div>6.0 sec</div>
-        <div>8.0 sec</div>
-        <div>10.0 sec</div>
-      </div>
+    
     </div>
   );
 };
