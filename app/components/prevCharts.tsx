@@ -1,11 +1,16 @@
 import propietary_charts from "propietary_charts/propietery";
 import { formatTimeStamp } from "@/utils/formatTimeStamp";
-import { getColor } from "./chartHelpers";
-import { SeriesData } from "./types";
+import { getColor } from "./chartHelpers"; 
 import { toast } from "react-toastify";
 import { logger } from "@/hooks/logger";
 
 
+export interface SeriesData {
+  type: string;
+  name: string;
+  data: [number, number][];
+  originalData: [number, number][];
+}
 // Keep track of selection state outside the function
 // Reset this value when the component unmounts or when chart re-renders
 let startTime: number | null = null;
@@ -530,9 +535,9 @@ export const createpropietary_chartsOptions = ({
      },
      step: !sharpEdges ? "left" : undefined,
      connectNulls: sharpEdges,
-     turboThreshold: !sharpEdges ? 0 : undefined,
+     turboTshreshold: !sharpEdges ? 0 : undefined,
      lastPoint: !sharpEdges
-       ? {
+       ? {s
            marker: {
              enabled: true,
              radius: 1,
